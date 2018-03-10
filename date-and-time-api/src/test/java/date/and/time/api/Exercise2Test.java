@@ -18,7 +18,7 @@ public class Exercise2Test {
         /**
          * Create a {@link LocalTime} of 23:07 by using {@link LocalTime#of}
          */
-        LocalTime localTime = null;
+        LocalTime localTime = LocalTime.of(23, 7);
 
         assertThat(localTime.toString(), is("23:07"));
     }
@@ -28,7 +28,7 @@ public class Exercise2Test {
         /**
          * Create a {@link LocalTime} of 23:07:03.1 by using {@link LocalTime#of}
          */
-        LocalTime localTime = null;
+        LocalTime localTime = LocalTime.of(23, 7,3,100000000);
 
         assertThat(localTime.toString(), is("23:07:03.100"));
     }
@@ -38,7 +38,7 @@ public class Exercise2Test {
         /**
          * Create a {@link LocalTime} of 23:07:03.1 from String by using {@link LocalTime#parse}
          */
-        LocalTime localTime = null;
+        LocalTime localTime = LocalTime.parse("23:07:03.1");
 
         assertThat(localTime.toString(), is("23:07:03.100"));
     }
@@ -51,7 +51,7 @@ public class Exercise2Test {
          * Create a {@link LocalTime} from {@link lt} with hour 21
          * by using {@link LocalTime#withHour} or {@link LocalTime#with}
          */
-        LocalTime localTime = null;
+        LocalTime localTime = lt.minusHours(2);
 
         assertThat(localTime.getHour(), is(21));
         assertThat(localTime.getMinute(), is(lt.getMinute()));

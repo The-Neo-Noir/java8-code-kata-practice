@@ -6,6 +6,7 @@ import common.test.tool.entity.Customer;
 
 import org.junit.Test;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -54,7 +55,7 @@ public class Exercise5Test extends ClassicOnlineStore {
         /**
          * Create a csv string of customer names in brackets "[]" by using {@link Collectors#joining}
          */
-        String string = null;
+        String string = customerList.stream().map(Customer::getName).collect(Collectors.joining("," ,"[", "]"));
 
         assertThat(string, is("[Joe,Steven,Patrick,Diana,Chris,Kathy,Alice,Andrew,Martin,Amy]"));
     }
@@ -67,7 +68,7 @@ public class Exercise5Test extends ClassicOnlineStore {
          * Get the oldest customer by using {@link Collectors#maxBy}.
          * Don't use any intermediate operations.
          */
-        Optional<Customer> oldestCustomer = null;
+        Optional<Customer> oldestCustomer = customerList.stream().collect(Collectors.maxBy((a,b)->a.getAge().compareTo(b.getAge())));
 
         assertThat(oldestCustomer.get(), is(customerList.get(3)));
     }
@@ -81,7 +82,6 @@ public class Exercise5Test extends ClassicOnlineStore {
          * using {@link Collectors#groupingBy} and {@link Collectors#counting}
          */
         Map<Integer, Long> ageDistribution = null;
-
         assertThat(ageDistribution.size(), is(9));
         ageDistribution.forEach((k, v) -> {
             if (k.equals(22)) {
