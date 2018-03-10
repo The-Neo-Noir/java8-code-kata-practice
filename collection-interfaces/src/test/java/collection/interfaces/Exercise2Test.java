@@ -41,8 +41,8 @@ public class Exercise2Test {
         /**
          * Try to put 2 entry with key as "Alice" value as 32, key as "Joe" and value as 32 using {@link Map#putIfAbsent}.
          */
-        // map.
-        // map.
+         map.putIfAbsent("Alice", 32);
+        map.put("Joe", 22);
 
         assertThat(map.get("Alice"), is(32));
         assertThat(map.get("Joe"), is(22));
@@ -73,7 +73,7 @@ public class Exercise2Test {
          */
         BiFunction<Object, Object, Integer> remappingFunction = null;
         // map.
-        // map.
+        // map. 
         // map.
 
         assertThat(map.get("Joe"), is(23));
